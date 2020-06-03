@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿// note: fade doesnt work if the material doest support transparency..
 
-// note: fade doesnt work if the material doest support transparency..
+using UnityEngine;
+using System.Collections;
 
 public class MeshFader : MonoBehaviour
 {

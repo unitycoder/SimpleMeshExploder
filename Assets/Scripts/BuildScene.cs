@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-
-// builds stack of boxes
+﻿// instantiate stack of boxes
+using UnityEngine;
 
 public class BuildScene : MonoBehaviour
 {

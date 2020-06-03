@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class SimpleMeshExploder : MonoBehaviour
@@ -14,7 +13,6 @@ public class SimpleMeshExploder : MonoBehaviour
     {
         cam = Camera.main;
     }
-
 
     void Update()
     {
@@ -75,8 +73,7 @@ public class SimpleMeshExploder : MonoBehaviour
 
     void CreateMeshPiece(float extrudeSize, Vector3 pos, Material mat, int index, Vector3 faceNormal, Vector3 v1, Vector3 v2, Vector3 v3, Vector2 uv1, Vector2 uv2, Vector2 uv3)
     {
-        GameObject go = new GameObject();
-        go.name = "piece_" + index;
+        GameObject go = new GameObject("piece_" + index);
 
         Mesh mesh = go.AddComponent<MeshFilter>().mesh;
         go.AddComponent<MeshRenderer>();
