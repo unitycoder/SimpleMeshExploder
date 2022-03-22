@@ -3,35 +3,38 @@
 using UnityEngine;
 using System.Collections;
 
-public class MeshFader : MonoBehaviour
+namespace Unitycoder.Demos
 {
-    private bool fadeOut = false;
-
-    void Update()
+    public class MeshFader : MonoBehaviour
     {
-        if (fadeOut) return;
+        private bool fadeOut = false;
 
-        // wait until rigibody is spleeping
-        if (GetComponent<Rigidbody>().IsSleeping())
+        void Update()
         {
-            fadeOut = true;
-            StartCoroutine(FadeOut());
+            if (fadeOut) return;
+
+            // wait until rigibody is spleeping
+            if (GetComponent<Rigidbody>().IsSleeping())
+            {
+                fadeOut = true;
+                StartCoroutine(FadeOut());
+            }
         }
-    }
 
-    IEnumerator FadeOut()
-    {
-        float fadeTime = 2.0f;
-        var rend = GetComponent<Renderer>();
-
-        var startColor = Color.white;
-        var endColor = new Color(1, 1, 1, 0);
-
-        for (float t = 0.0f; t < fadeTime; t += Time.deltaTime)
+        IEnumerator FadeOut()
         {
-            rend.material.color = Color.Lerp(startColor, endColor, t / fadeTime);
-            yield return null;
+            float fadeTime = 2.0f;
+            var rend = GetComponent<Renderer>();
+
+            var startColor = Color.white;
+            var endColor = new Color(1, 1, 1, 0);
+
+            for (float t = 0.0f; t < fadeTime; t += Time.deltaTime)
+            {
+                rend.material.color = Color.Lerp(startColor, endColor, t / fadeTime);
+                yield return null;
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

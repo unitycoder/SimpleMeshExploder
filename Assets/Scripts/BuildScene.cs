@@ -1,30 +1,33 @@
 ﻿// instantiate stack of boxes
 using UnityEngine;
 
-public class BuildScene : MonoBehaviour
+namespace Unitycoder.Demos
 {
-    public Transform prefab;
-
-    public int width = 3;
-    public int heigth = 3;
-    public int depth = 3;
-
-    void Start()
+    public class BuildScene : MonoBehaviour
     {
-        Vector3 pos = Vector3.zero;
-        Vector3 o = prefab.GetComponent<Renderer>().bounds.size + new Vector3(0.03f, 0.03f, 0.03f);
+        public Transform prefab;
 
-        for (int x = 0; x < width; x++)
+        public int width = 3;
+        public int heigth = 3;
+        public int depth = 3;
+
+        void Start()
         {
-            for (int y = 0; y < heigth; y++)
+            Vector3 pos = Vector3.zero;
+            Vector3 o = prefab.GetComponent<Renderer>().bounds.size + new Vector3(0.03f, 0.03f, 0.03f);
+
+            for (int x = 0; x < width; x++)
             {
-                for (int z = 0; z < depth; z++)
+                for (int y = 0; y < heigth; y++)
                 {
-                    pos = new Vector3(x * o.x, y * o.y, z * o.z);
-                    Instantiate(prefab, pos, Quaternion.identity);
+                    for (int z = 0; z < depth; z++)
+                    {
+                        pos = new Vector3(x * o.x, y * o.y, z * o.z);
+                        Instantiate(prefab, pos, Quaternion.identity);
+                    }
                 }
             }
-        }
 
+        }
     }
 }
