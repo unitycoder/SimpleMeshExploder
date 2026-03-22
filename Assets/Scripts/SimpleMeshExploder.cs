@@ -81,7 +81,7 @@ namespace Unitycoder.Demos
                 Rigidbody rb;
                 if (target.TryGetComponent<Rigidbody>(out rb))
                 {
-                    velocity = rb.velocity;
+                    velocity = rb.linearVelocity;
                     angularVelocity = rb.angularVelocity;
                     mass = rb.mass / (float)triangles.Length;
                     useGravity = rb.useGravity;
@@ -202,7 +202,7 @@ namespace Unitycoder.Demos
             var rb = go.AddComponent<Rigidbody>();
             if (inheritRbProperties == true)
             {
-                rb.velocity = velocity * 0.5f;
+                rb.linearVelocity = velocity * 0.5f;
                 rb.angularVelocity = angularVelocity * 0.5f;
                 rb.mass = mass;
                 rb.useGravity = useGravity;
