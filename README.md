@@ -5,3 +5,6 @@ Breaks meshes into faces with added 4th vertex behind it (to add some thickness 
 ### Images
 
 ![meshexploder-ezgif com-cut](https://github.com/user-attachments/assets/d57f81b6-e95b-4d37-8142-699f58046be1)
+
+### Alternative Mesh Fracturing Tools
+- see comments section for links https://unitycoder.com/blog/2017/03/25/mesh-explorer-sources/
